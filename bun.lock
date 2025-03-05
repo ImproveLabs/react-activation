@@ -4,10 +4,10 @@
     "": {
       "name": "react-activation",
       "dependencies": {
-        "create-react-context": "^0.3.0",
-        "hoist-non-react-statics": "^3.3.0",
-        "react-node-key": "^0.4.0",
-        "szfe-tools": "^0.0.0-beta.7",
+        "create-react-context": "0.3.0",
+        "hoist-non-react-statics": "3.3.2",
+        "react-node-key": "0.4.0",
+        "szfe-tools": "0.0.0-beta.7",
       },
       "devDependencies": {
         "unbuild": "3.5.0",

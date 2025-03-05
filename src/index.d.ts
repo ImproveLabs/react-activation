@@ -30,11 +30,6 @@ export declare class AliveScope extends Component<{
   children: ReactNode | ReactNodeArray
 }> {}
 
-export declare class NodeKey extends Component<{
-  prefix?: string
-  onHandleNode?: (node: any, mark?: string) => string | undefined | null
-}> {}
-
 export function fixContext(context: Context<any>): void
 export function createContext<T>(
   defaultValue: T,

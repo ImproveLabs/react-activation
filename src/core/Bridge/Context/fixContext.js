@@ -1,5 +1,4 @@
 import React, { useContext, Fragment } from 'react'
-import createReactContext from 'create-react-context'
 import { run, get, isString, isFunction, memoize, EventBus, isExist } from 'szfe-tools'
 
 import { aliveScopeContext, aliveNodeContext } from '../../context'
@@ -22,10 +21,10 @@ export const fixContext = memoize((ctx) => {
   if (!isExist(ctx.Consumer)) {
     function Consumer({ children }) {
       const ctxValue = run(useContext, undefined, ctx)
-    
+
       return <Fragment>{run(children, undefined, ctxValue)}</Fragment>
     }
-    
+
     // 重新声明 Consumer
     ctx.Consumer = Consumer
   }
@@ -34,12 +33,6 @@ export const fixContext = memoize((ctx) => {
   setTimeout(() => eventBus.emit('update'))
 })
 
-export const createContext = (defaultValue, calculateChangedBits) => {
-  const ctx = createReactContext(defaultValue, calculateChangedBits)
-
-  fixContext(ctx)
-  return ctx
-}
 
 const tryFixCtx = memoize((type) => {
   // 尝试读取 Provider 或 Consumer 中的 context 静态属性

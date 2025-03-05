@@ -1,5 +1,5 @@
-import { fixContext, autoFixContext, createContext } from './fixContext'
+import { fixContext, autoFixContext } from './fixContext'
 
-export { fixContext, autoFixContext, createContext }
+export { fixContext, autoFixContext }
 export { default as ProviderBridge } from './ProviderBridge'
 export { default as ConsumerBridge } from './ConsumerBridge'

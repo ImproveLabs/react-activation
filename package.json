@@ -1,7 +1,7 @@
 {
   "name": "@improvelabs/react-activation",
   "type": "module",
-  "version": "0.13.0",
+  "version": "0.0.1",
   "description": "<KeepAlive /> for React like <keep-alive /> in vue",
   "author": "CJY0208",
   "license": "ISC",
@@ -11,12 +11,12 @@
     "url": "git+https://github.com/CJY0208/react-activation.git"
   },
   "scripts": {
-    "build": "unbuild",
-    "prepack": "unbuild"
+    "build": "unbuild"
   },
+  "main": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
       "types": "./dist/index.d.mts"
     }
   },
@@ -30,9 +30,7 @@
     "react": ">=16"
   },
   "dependencies": {
-    "create-react-context": "0.3.0",
     "hoist-non-react-statics": "3.3.2",
-    "react-node-key": "0.4.0",
     "szfe-tools": "0.0.0-beta.7"
   },
   "devDependencies": {

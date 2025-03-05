@@ -4,18 +4,11 @@ import hoistStatics from 'hoist-non-react-statics'
 import { get, isFunction, isUndefined } from 'szfe-tools'
 
 import { Acceptor } from './Bridge'
-import NodeKey from './NodeKey'
 import { AliveScopeConsumer, useScopeContext } from './context'
 
 function controllerCherryPick(controller) {
-  const {
-    drop,
-    dropScope,
-    refresh,
-    refreshScope,
-    clear,
-    getCachingNodes,
-  } = controller
+  const { drop, dropScope, refresh, refreshScope, clear, getCachingNodes } =
+    controller
   return { drop, dropScope, refresh, refreshScope, clear, getCachingNodes }
 }
 
@@ -30,25 +23,17 @@ export const expandKeepAlive = (KeepAlive) => {
     return isOutsideAliveScope ? (
       get(props, 'children', null)
     ) : (
-      <NodeKey prefix={idPrefix} key={props._nk} manualKey={props.cacheKey}>
-        {(nkId) => {
-          const id = props.cacheKey || nkId
-
-          return (
-            <Acceptor key={id} id={id}>
-              {(bridgeProps) => (
-                <KeepAlive
-                  key={id}
-                  {...props}
-                  {...bridgeProps}
-                  id={id}
-                  _helpers={helpers}
-                />
-              )}
-            </Acceptor>
-          )
-        }}
-      </NodeKey>
+      <Acceptor key={props.cacheKey} id={props.cacheKey}>
+        {(bridgeProps) => (
+          <KeepAlive
+            key={props.cacheKey}
+            {...props}
+            {...bridgeProps}
+            id={props.cacheKey}
+            _helpers={helpers}
+          />
+        )}
+      </Acceptor>
     )
   }
   const HookExpand = ({ id: idPrefix, ...props }) =>

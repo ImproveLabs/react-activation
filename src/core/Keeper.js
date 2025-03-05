@@ -213,7 +213,6 @@ export default class Keeper extends PureComponent {
           <div
             {...contentProps}
             key='keeper-container'
-            nodeKeyIgnore
             className={`ka-content ${contentProps.className || ''}`}
           >
             <Bridge id={id} bridgeProps={bridgeProps}>
